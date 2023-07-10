@@ -35,7 +35,7 @@ import First from './Components/First';
 import Second from './Components/Second';
 import Third from './Components/Third';
 import Header from './Header'
-import "./styles.css";
+// import "./styles.css";
 const SEL = "custom-section";
 const SECTION_SEL = `.${SEL}`;
 
