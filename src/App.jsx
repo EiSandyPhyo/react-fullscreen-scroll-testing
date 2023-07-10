@@ -112,13 +112,13 @@ const App = () => {
   const { fullpages } = {
     fullpages: [
       {
-        text: <First />,
+        component: <First />,
       },
       {
-        text: <Second />,
+        component: <Second />,
       },
       {
-        text: <Third />,
+        component: <Third />,
       },
     ],
   };
@@ -142,9 +142,9 @@ const App = () => {
         sectionsColor={["#3c3b5a", "#32324c", "#3c3b5a"]}
         render={(comp) => (
           <ReactFullpage.Wrapper>
-            {fullpages.map(({ text }) => (
-              <div key={text} className={SEL}>
-                <div className="">{text}</div>
+            {fullpages.map(({ component }) => (
+              <div key={component} className={SEL}>
+                {component}
               </div>
             ))}
           </ReactFullpage.Wrapper>
