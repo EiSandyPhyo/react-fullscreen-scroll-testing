@@ -29,12 +29,11 @@ const App = () => {
 
 export default App */
 
-import React, { useState } from "react";
+import React from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import First from './Components/First';
 import Second from './Components/Second';
 import Third from './Components/Third';
-import Header from './Header'
 import "./styles.css";
 const SEL = "custom-section";
 const SECTION_SEL = `.${SEL}`;
@@ -55,20 +54,20 @@ const originalColors = [
 class App extends React.Component {
   constructor(props) {
     super(props);
-      this.state = {
-        sectionsColor: [...originalColors],
-        fullpages: [
-          {
-            text: <First/>
-          },
-          {
-            text: <Second/>
-          },
-          {
-            text: <Third/>
-          }
-        ]
-      }
+    this.state = {
+      sectionsColor: [...originalColors],
+      fullpages: [
+        {
+          text: "Section 1"
+        },
+        {
+          text: "Section 2"
+        },
+        {
+          text: "Section 3"
+        }
+      ]
+    };
   }
 
   onLeave(origin, destination, direction) {
@@ -84,28 +83,54 @@ class App extends React.Component {
       return null;
     }
 
+    const Menu = () => (
+      <div
+        className="menu"
+        style={{
+          position: "fixed",
+          top: 0,
+          zIndex: 100
+        }}
+      ></div>
+    );
 
     return (
       <div className="App">
-        <Header/>
+        <Menu />
         <ReactFullpage
-          debug
+          debug /* Debug logging */
+          // Required when using extensions
           pluginWrapper={pluginWrapper}
-          licenseKey={"YOUR_KEY_HERE"} 
+          // fullpage options
+          licenseKey={"YOUR_KEY_HERE"} // Get one from https://alvarotrigo.com/fullPage/pricing/
           navigation
           anchors={["firstPage", "secondPage", "thirdPage"]}
           sectionSelector={SECTION_SEL}
           onLeave={this.onLeave.bind(this)}
           sectionsColor={this.state.sectionsColor}
           render={(comp) => (
-          <ReactFullpage.Wrapper>
-              {fullpages.map(({ text }) => (
+            <ReactFullpage.Wrapper>
+             {/*  {fullpages.map(({ text }) => (
                 <div key={text} className={SEL}>
-                  <div className="">
-                    {text}
+                  <div className="slide">
+                    <h3>{text}</h3>
+                  </div>
+                  <div className="slide">
+                    <h3>{text}</h3>
                   </div>
                 </div>
-              ))}
+              ))} */}
+              <div className={SEL}>
+                <div className="slide">
+                  <First/>
+                </div>
+                <div className="slide">
+                  <Second/>
+                </div>
+                <div className="slide">
+                  <Third/>
+                </div>
+            </div>
             </ReactFullpage.Wrapper>
           )}
         />
