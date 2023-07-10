@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: arial, helvetica;
+}
+  
+header {
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+  
+header {
+  background-color:rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #556270;
+}
+h3 {
+  font-size: 5em;
+  text-align: center;
+  color: plum;
+  font-weight: 700;
+}
+
+#fp-nav ul li a span{
+  background-color: #fff;
+}
+
+  
